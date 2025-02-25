@@ -3,8 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Recycle</title>
+  <title>Ecoloop</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://ecology.websitelayout.net/img/logos/logo-inner.png">
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="icon" href="https://cdn-icons-png.freepik.com/512/9632/9632588.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -23,11 +26,12 @@
       position: relative;
       height: 100%;
     }
-
+    html{
+        scroll-behavior: smooth;
+    }
     body {
       background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-
       font-size: 14px;
       color: #000;
       margin: 0;
@@ -77,7 +81,7 @@
 
 <body>
   <!-- Swiper -->
-  <div class="swiper mySwiper">
+  <div id="home" class="swiper mySwiper">
     <div class="swiper-wrapper">
       <div class="swiper-slide relative">
         <h1 class="absolute text-7xl text-white translate-y-[-1px] right-[150px] z-10">
@@ -101,17 +105,17 @@
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/5355590/pexels-photo-5355590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[225px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
+          <h1 class="absolute text-6xl text-white translate-y-[138px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
         </div>
         <div class="flex justify content-centent absolute">
           <div class="flex list-none font-semibold p-5 justify-center text-center text-white">
-              <li class="px-16 ">HOME</li>
-              <li class="px-16 ">ABOUT</li>
-              <li class="px-16">LOCATIONS</li>
-              <li class="px-16">GALLERY</li>
-              <li class="px-16">SCHEME</li>
+              <a href="#home"><li class="px-16 ">HOME</li></a>
+              <a href="#about"><li class="px-16 ">ABOUT</li></a>
+              <a href="#scheme"><li class="px-16">SCHEME</li></a>
+              <a href="#gallery"><li class="px-16">GALLERY</li></a>
+              <a href="/location"><li class="px-16">LOCATIONS</li></a>
               <li class="px-16">CONTACT</li>
-              <li class="px-11">SUPPORT</li>
+              <a href="/popup"><li class="px-11">SUPPORT</li></a>
               <li class="px-11">POINTS:20PTS</li>
           </div>
       </div>
@@ -147,14 +151,14 @@
     scrollbar: {
         el: '.swiper-scrollbar',
     },
-    //autoplay:{
-        //delay:3000,
-    //}
+    autoplay:{
+        delay:3000,
+    }
     });
   </script>
   <!-- .......swiper ends.............. -->
   <div>
-    <h1 class="max  p-5 text-[60px] text-center text-black ">
+    <h1 id="about" class="max  p-5 text-[60px] text-center text-black ">
       Recycle
     </h1>
     <div>
@@ -164,7 +168,7 @@
     </div>
   </div>
   <div>
-    <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
+    <h1 id="scheme" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
     <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
       The government has introduced an innovative recycling reward program to encourage responsible waste disposal and environmental sustainability. Under this scheme, individuals can collect and submit recyclable materials such as plastic bottles, paper, and other waste items to designated collection centers. In return, participants earn points based on the quantity and type of materials provided. Each point is equivalent to 1 Indian Rupee, which can be redeemed for cash or other benefits. This initiative not only reduces waste and pollution but also incentivizes citizens to actively participate in creating a cleaner and greener future. Join the program today and turn your waste into value while contributing to a sustainable environment!
     </p>
@@ -216,54 +220,127 @@
       });
   </script>
   <!-- ......gallery.......................................... -->
-    
-    <div class="grid grid-cols-4 gap-4 p-4">
-        <img src="https://www.shutterstock.com/shutterstock/videos/1024648685/thumb/12.jpg?ip=x480" alt="Image 1" class="gallery-img">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpLXyGE5kB5pPXt_lI5oz-cUEyrovO4Pj5O6wvcsUEnh8WvHcMmgruhXJ7zgncZwrJWgw&usqp=CAU" alt="Image 2" class="gallery-img">
-        <img src="https://vidhilegalpolicy.in/wp-content/uploads/2020/07/Sanitation-and-Waste-Management_Commons-1600x900.jpg" alt="Image 3" class="gallery-img">
-        <img src="https://www.rochesterfirst.com/wp-content/uploads/sites/66/2024/06/6680afbf7c4375.18455056.jpeg?w=2560&h=1440&crop=1" alt="Image 4" class="gallery-img">
-        <img src="https://fullerproject.org/wp-content/uploads/2022/05/Kenya-waste-picker-person-with-bag-1600x1067.jpg" alt="Image 5" class="gallery-img">
-        <img src="https://thecritilizers.com/wp-content/uploads/2023/03/landfill.jpg" alt="Image 6" class="gallery-img">
-        <img src="https://static01.nyt.com/images/2018/06/11/world/00india-trash-1/00india-trash-1-superJumbo.jpg" alt="Image 7" class="gallery-img">
-        <img src="https://www.dodho.com/wp-content/uploads/2017/03/GRAND-PRIZE-Arash-Yaghmaeian-United-States-of-America.jpg" alt="Image 8" class="gallery-img">
-        <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201706/waste-story_647_062517064258.jpg" alt="Image 9" class="gallery-img">
-        <img src="https://www.telegraph.co.uk/multimedia/archive/01513/philippines-typhoo_1513324i.jpg" alt="Image 10" class="gallery-img">
-        <img src="https://www.telegraph.co.uk/multimedia/archive/03050/potd-sewer_3050705k.jpg" alt="Image 11" class="gallery-img">
-        <img src="https://www.telegraph.co.uk/multimedia/archive/00783/afghan-rubbish_783283i.jpg" alt="Image 12" class="gallery-img">
+  <h1 id="gallery" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Gallery</h1>
+  <div class="grid grid-cols-4 gap-4 p-4 ">
+    <img src="https://www.shutterstock.com/shutterstock/videos/1024648685/thumb/12.jpg?ip=x480" alt="Image 1" class="gallery-img hover:scale-[1.02]">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpLXyGE5kB5pPXt_lI5oz-cUEyrovO4Pj5O6wvcsUEnh8WvHcMmgruhXJ7zgncZwrJWgw&usqp=CAU" alt="Image 2" class="gallery-img hover:scale-[1.02]">
+    <img src="https://vidhilegalpolicy.in/wp-content/uploads/2020/07/Sanitation-and-Waste-Management_Commons-1600x900.jpg" alt="Image 3" class="gallery-img hover:scale-[1.02]">
+    <img src="https://www.rochesterfirst.com/wp-content/uploads/sites/66/2024/06/6680afbf7c4375.18455056.jpeg?w=2560&h=1440&crop=1" alt="Image 4" class="gallery-img hover:scale-[1.02]">
+    <img src="https://fullerproject.org/wp-content/uploads/2022/05/Kenya-waste-picker-person-with-bag-1600x1067.jpg" alt="Image 5" class="gallery-img hover:scale-[1.02]">
+    <img src="https://thecritilizers.com/wp-content/uploads/2023/03/landfill.jpg" alt="Image 6" class="gallery-img">
+    <img src="https://static01.nyt.com/images/2018/06/11/world/00india-trash-1/00india-trash-1-superJumbo.jpg" alt="Image 7" class="gallery-img hover:scale-[1.02]">
+    <img src="https://www.dodho.com/wp-content/uploads/2017/03/GRAND-PRIZE-Arash-Yaghmaeian-United-States-of-America.jpg" alt="Image 8" class="gallery-img hover:scale-[1.02]">
+    <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201706/waste-story_647_062517064258.jpg" alt="Image 9" class="gallery-img hover:scale-[1.02]">
+    <img src="https://www.telegraph.co.uk/multimedia/archive/01513/philippines-typhoo_1513324i.jpg" alt="Image 10" class="gallery-img hover:scale-[1.02]">
+    <img src="https://www.telegraph.co.uk/multimedia/archive/03050/potd-sewer_3050705k.jpg" alt="Image 11" class="gallery-img hover:scale-[1.02]">
+    <img src="https://www.telegraph.co.uk/multimedia/archive/00783/afghan-rubbish_783283i.jpg" alt="Image 12" class="gallery-img hover:scale-[1.02]">
+  </div>
+  
+  <!-- Modal -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center">
+    <div class="relative max-w-3xl w-full p-4">
+        <button id="closeModal" class="absolute top-6 right-8 text-white text-3xl">&times;</button>
+        <img id="modalImage" class="w-full max-h-screen object-contain rounded-lg shadow-lg ">
     </div>
-
-    <!-- Modal -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center">
-        <div class="relative max-w-3xl w-full">
-            <button id="closeModal" class="absolute top-3 right-3 text-white text-3xl">&times;</button>
-            <img id="modalImage" class="w-full rounded-lg shadow-lg">
-        </div>
-    </div>
-
-    <script>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
         const modal = document.getElementById("imageModal");
         const modalImage = document.getElementById("modalImage");
         const closeModal = document.getElementById("closeModal");
-
+  
         document.querySelectorAll(".gallery-img").forEach(img => {
-            img.classList.add("w-full", "h-auto", "rounded-lg", "cursor-pointer", "transition-transform", "duration-300", "hover:scale-105", "hover:shadow-lg");
-            
-            img.addEventListener("click", function() {
+            // Add Tailwind styles for hover effect with reduced scale
+            img.classList.add(
+                "w-full", 
+                "h-auto", 
+                "rounded-lg", 
+                "cursor-pointer", 
+                "transition-transform", 
+                "duration-300",
+                "hover:scale-101",  // Subtle hover effect (1% increase)
+                "hover:shadow-md"   // Light shadow on hover
+            );
+  
+            img.addEventListener("click", function () {
                 modal.classList.remove("hidden");
                 modal.classList.add("flex");
                 modalImage.src = this.src;
             });
         });
-
+  
         closeModal.addEventListener("click", () => {
             modal.classList.add("hidden");
         });
-
+  
         modal.addEventListener("click", (e) => {
+            // Close only if clicking outside the image
             if (e.target === modal) {
                 modal.classList.add("hidden");
             }
         });
-    </script>
+    });
+  </script>
+  <!-- footer starts here-->
+    <footer class="bg-[#223139] text-white py-8 rounded-t-md">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 --->
+                <div>
+                    <img class="w-40 h-auto  cursor-pointer" src="https://ecozone-react.vercel.app/assets/img/logo.svg" alt="Logo">
+                
+                </div>
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Service</h3>
+                    <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+                    <p class="text-gray-400 py-2 text-sm">Waste collection and disposal</p>
+                    <p class="text-gray-400 py-2 text-sm">Recycling Pick up service</p>
+                    <p class="text-gray-400 py-2 text-sm">E-waste Recycling</p>
+                    <p class="text-gray-400 py-2 text-sm">Plastic and Paper recycling</p>
+                    <h4 class="text-gray-400 py-2 text-sm">Sustainable product listing</h4>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Links</h3>
+                    <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+                    <ul class="space-y-2 ">
+                        <li><a href="home" class="text-gray-400 hover:text-[#198754]">Home</a></li>
+                        <li><a href="service" class="text-gray-400 hover:text-[#198754]">Service</a></li>
+                        <li><a href="aboutus" class="text-gray-400  hover:text-[#198754] ">About Us</a></li>
+                        <li><a href="features" class="text-gray-400 hover:text-[#198754]"></a></li>
+                        <li><a href="contact" class="text-gray-400 hover:text-[#198754]">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Newsletter</h3>
+                    <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+                    <form class="flex items-center mb-4">
+                        <i class="fa-solid fa-envelope text-gray-400 mr-2"></i>
+                        <input type="email" placeholder="Enter your email" class="bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
+                        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md ml-2 hover:bg-green-400 cursor-pointer">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    <div class="flex space-x-4  cursor-pointer">
+                        <i class="fa-brands fa-facebook  hover:text-[#198754]"></i>
+                        <i class="fa-brands fa-instagram  hover:text-[#198754]"></i>
+                        <i class="fa-brands fa-twitter  hover:text-[#198754]"></i>
+                        <i class="fa-brands fa-linkedin-in hover:text-[#198754]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="border-gray-600 my-6">
+        <p class="text-center text-gray-400 text-sm">
+            Echozone 2025 - All Rights Reserved
+        </p>
+    </footer>
+  
+  
 </body>
 </html>

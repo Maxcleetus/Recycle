@@ -5,7 +5,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Recycle</title>
+  <title>Ecoloop</title>
+  <link rel="stylesheet" href="https://ecology.websitelayout.net/img/logos/logo-inner.png">
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="icon" href="https://cdn-icons-png.freepik.com/512/9632/9632588.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +29,9 @@
       position: relative;
       height: 100%;
     }
-
+    html{
+      scroll-behavior: smooth;
+    }
     body {
       background: #eee;
       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -82,15 +88,15 @@
   
 
   <!-- Swiper -->
-  <div class="swiper mySwiper">
+  <div class="swiper mySwiper" id="home">
     <div class="swiper-wrapper">
       <div class="swiper-slide relative">
-        <h1 class="absolute text-7xl text-white translate-y-[-1px] right-[150px] z-10">
+        <h1 class="absolute text-7xl text-white   max-md:right-[3.5rem]  max-md:top-[24rem] max-md:text-[42px] translate-y-[-1px] right-[150px] z-10">
             Recycle and reuse
         </h1>
         <div class="absolute inset-0 backdrop-blur-[7px]"></div> <!-- Blur effect -->
         <img class="w-full h-full object-cover"src="https://images.pexels.com/photos/5269961/pexels-photo-5269961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-        <p class="absolute text-lg text-white translate-y-[50px] right-[166px] z-10 text-left">Recycling turns yesterday’s waste into tomorrow’s<br>resources</p>
+        <p class="absolute text-lg max-md:text-[20px] max-md:ml-6 max-md:right-6 max-md:top-[600px] text-white translate-y-[27px] right-[166px] z-10 text-left">Recycling turns yesterday’s waste into tomorrow’s<br>resources</p>
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/18216395/pexels-photo-18216395/free-photo-of-group-of-people-in-a-garbage-sorting-plant-next-to-bags-of-plastic-bottles-and-a-truck-with-waste-paper.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
@@ -102,22 +108,22 @@
         </div>
         <div class="swiper-slide">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/India_-_Varanasi_paper_bag_maker_-_0078.jpg" alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[148px] right-[37px] z-10 text-left">Be part of the solution<br>not the pollution</h1>
+          <h1 class="absolute text-6xl text-white max-md:translate-y-[132px] translate-y-[148px] right-[37px] z-10 text-left">Be part of the solution<br>not the pollution</h1>
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/5355590/pexels-photo-5355590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[225px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
+          <h1 class="absolute text-6xl text-white translate-y-[138px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
         </div>
         <div class="flex justify content-centent absolute">
-          <div class="flex list-none font-semibold p-5 justify-center text-center text-white">
-              <li class="px-16 ">HOME</li>
-              <li class="px-16 ">ABOUT</li>
-              <li class="px-16">LOCATIONS</li>
-              <li class="px-16">GALLERY</li>
-              <li class="px-16">SCHEME</li>
-              <li class="px-16">CONTACT</li>
-              <li class="px-16">SUPPORT</li>
-              <a href="/login"><li class="px-16">LOGIN</li></a>
+          <div class="flex max-md:text-[12px] max-md:py-2 list-none font-semibold p-5 justify-center text-center text-white">
+              <a href="#home"><li class="px-16 max-md:px-0">HOME</li></a>
+              <a href="#about"><li class="px-16 max-md:px-2">ABOUT</li></a>
+              <a href="#scheme"><li class="px-16 max-md:px-2">SCHEME</li></a>
+              <a href="#gallery"><li class="px-16 max-md:hidden">GALLERY</li></a>
+              <a href="/location"><li class="px-16 max-md:px-2">LOCATIONS</li></a>
+              <li class="px-16 max-md:hidden">CONTACT</li>
+              <a href="/popup"><li class="px-11 max-md:hidden">SUPPORT</li></a>
+              <a href="/login"><li class="px-16 max-md:px-2">LOGIN</li></a>
           </div>
       </div>
     </div>
@@ -152,32 +158,32 @@
     scrollbar: {
         el: '.swiper-scrollbar',
     },
-    //autoplay:{
-        //delay:3000,
-    //}
+    autoplay:{
+        delay:3000,
+    }
     });
   </script>
   <!-- .......swiper ends.............. -->
   <!-- ...........gallery................. -->
-  <div>
-    <h1 class="max  p-5 text-[60px] text-center text-black ">
+  <div id="about">
+    <h1 class="max p-5 text-[60px] text-center text-black  ">
       Recycle
     </h1>
     <div>
-      <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+      <p class="max2 max-md:px-2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
         Recycling is the process of collecting and processing materials that would otherwise be thrown away to create new products. This helps to conserve natural resources, reduce landfill waste, and decrease pollution. For example, old newspapers can be recycled into new paper products, plastic bottles can be turned into new plastic containers, and glass jars can be melted down to make new glass bottles. By recycling, we can help to reduce waste, protect the environment, and preserve natural resources for future generations.
       </p>
     </div>
   </div>
   <div>
-    <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
-    <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+    <h1 id="scheme" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
+    <p class="max2 max-md:px-2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
       The government has introduced an innovative recycling reward program to encourage responsible waste disposal and environmental sustainability. Under this scheme, individuals can collect and submit recyclable materials such as plastic bottles, paper, and other waste items to designated collection centers. In return, participants earn points based on the quantity and type of materials provided. Each point is equivalent to 1 Indian Rupee, which can be redeemed for cash or other benefits. This initiative not only reduces waste and pollution but also incentivizes citizens to actively participate in creating a cleaner and greener future. Join the program today and turn your waste into value while contributing to a sustainable environment!
     </p>
   </div>
   <div>
     <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Smart Bin & Government Recycling Reward Program    </h1>
-    <p class="max2 flex justify-center items-center translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">The Government Recycling Reward Program encourages people to recycle by offering 1 INR per point for submitting plastic, paper, and other waste at collection centers. This initiative helps keep the environment clean while rewarding participants.
+    <p class="max2 max-md:px-2 flex justify-center items-center translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">The Government Recycling Reward Program encourages people to recycle by offering 1 INR per point for submitting plastic, paper, and other waste at collection centers. This initiative helps keep the environment clean while rewarding participants.
 
       To enhance this program, the Smart Bin uses AI to automatically sort waste into plastic, paper, and metal. A built-in camera captures an image of the waste, and an AI model analyzes it to determine its category. Servo motors then direct the waste into the correct compartment.
       
@@ -191,7 +197,7 @@
   
   <!-- Popup Modal -->
   <div id="popup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
-      <div class="bg-white p-6 rounded-lg w-[500px] h-[700px] shadow-lg relative">
+      <div class="bg-white p-6 rounded-lg w-[500px] h-[700px] max-md:w-[300px] shadow-lg relative">
           <h1 class="max text-5xl text-center">Redeem Now</h1>
           <form action="https://formspree.io/f/meoebgnl" method="post" class="flex justify-center items-center flex-col">
             <input type="text" required name="name" placeholder="Enter Your Name" class="text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
@@ -223,7 +229,8 @@
   </script>
 <!-- ................gallery........................ -->
 <!-- Image Gallery -->
-<div class="grid grid-cols-4 gap-4 p-4 ">
+<h1 id="gallery" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Gallery</h1>
+<div class="grid grid-cols-4 max-md:grid-cols-2 gap-4 p-4 ">
   <img src="https://www.shutterstock.com/shutterstock/videos/1024648685/thumb/12.jpg?ip=x480" alt="Image 1" class="gallery-img hover:scale-[1.02]">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpLXyGE5kB5pPXt_lI5oz-cUEyrovO4Pj5O6wvcsUEnh8WvHcMmgruhXJ7zgncZwrJWgw&usqp=CAU" alt="Image 2" class="gallery-img hover:scale-[1.02]">
   <img src="https://vidhilegalpolicy.in/wp-content/uploads/2020/07/Sanitation-and-Waste-Management_Commons-1600x900.jpg" alt="Image 3" class="gallery-img hover:scale-[1.02]">
@@ -284,6 +291,64 @@
       });
   });
 </script>
+<!-- footer starts here-->
+<footer class="bg-[#223139] text-white py-8 rounded-t-md">
+  <div class="max-w-screen-xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Column 1 --->
+          <div>
+              <img class="w-40 h-auto  cursor-pointer" src="https://ecozone-react.vercel.app/assets/img/logo.svg" alt="Logo">
+          
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-2">Service</h3>
+            <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+            <p class="text-gray-400 py-2 text-sm">Waste collection and disposal</p>
+            <p class="text-gray-400 py-2 text-sm">Recycling Pick up service</p>
+            <p class="text-gray-400 py-2 text-sm">E-waste Recycling</p>
+            <p class="text-gray-400 py-2 text-sm">Plastic and Paper recycling</p>
+            <h4 class="text-gray-400 py-2 text-sm">Sustainable product listing</h4>
+          </div>
+          
+          <!-- Column 3 -->
+          <div>
+              <h3 class="text-lg font-semibold mb-2">Links</h3>
+              <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+              <ul class="space-y-2 ">
+                  <li><a href="home" class="text-gray-400 hover:text-[#198754]">Home</a></li>
+                  <li><a href="service" class="text-gray-400 hover:text-[#198754]">Service</a></li>
+                  <li><a href="aboutus" class="text-gray-400  hover:text-[#198754] ">About Us</a></li>
+                  <li><a href="features" class="text-gray-400 hover:text-[#198754]"></a></li>
+                  <li><a href="contact" class="text-gray-400 hover:text-[#198754]">Contact</a></li>
+              </ul>
+          </div>
+          
+          <!-- Column 4 -->
+          <div>
+              <h3 class="text-lg font-semibold mb-2">Newsletter</h3>
+              <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
+              <form class="flex items-center mb-4">
+                  <i class="fa-solid fa-envelope text-gray-400 mr-2"></i>
+                  <input type="email" placeholder="Enter your email" class="bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
+                  <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md ml-2 hover:bg-green-400 cursor-pointer">
+                      <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+              </form>
+              <div class="flex space-x-4  cursor-pointer">
+                  <i class="fa-brands fa-facebook  hover:text-[#198754]"></i>
+                  <i class="fa-brands fa-instagram  hover:text-[#198754]"></i>
+                  <i class="fa-brands fa-twitter  hover:text-[#198754]"></i>
+                  <i class="fa-brands fa-linkedin-in hover:text-[#198754]"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+  <hr class="border-gray-600 my-6">
+  <p class="text-center text-gray-400 text-sm">
+      Echozone 2025 - All Rights Reserved
+  </p>
+</footer>
 
 </body>
 </html>

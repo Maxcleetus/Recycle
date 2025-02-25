@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Artifika&family=Bebas+Neue&family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>popup</title>
+    <style>
+        .max{
+            font-family:Bebas Neue;
+        }
+        .max2{
+            font-family:Lora;
+        }
+    </style>
+</head>
+<body >
+    <img class="h-screen w-screen relative blur-md " src="https://upload.wikimedia.org/wikipedia/commons/a/aa/India_-_Varanasi_paper_bag_maker_-_0078.jpg"  alt="">
+    <h1 class="max tracking-wide absolute top-0 translate-x-111 p-5 text-[60px] text-center text-white font-semibold">
+            The Smart Waste Bin System   
+    </h1>
+    <p class="max2  absolute text-xl top-40 overflow-y-scroll h-[550px] text-white font-semibold px-28">
+            The Smart Waste Bin System is an innovative solution designed to promote recycling through automation and user incentives.
+    
+    By integrating IoT, Al, and real-time tracking, this system ensures proper waste segregation while encouraging users to contribute to a cleaner environment. The primary objective is to streamline the recycling process by automatically classifying waste and assigning points to users based on the type and quantity of waste deposited.
+    
+    Waste mismanagement remains a major challenge, leading to pollution, inefficient recycling, and increasing landfill waste. A lack of motivation and awareness further exacerbates this problem. This system tackles these issues by providing real-time tracking, automated sorting, and a rewarding mechanism to encourage participation. The system's architecture consists of an ESP32 microcontroller, various sensors, and an Al-powered classification model trained using Google's Teachable Machine.
+    
+    The user interacts with the system by scanning a unique QR code, which serves as an authentication mechanism. Once the waste is deposited, the Al model processes the input and categorizes it into paper, plastic, or metal. The classified waste is then sorted into the appropriate compartments using a mechanism controlled by the microcontroller. The system updates the user's points in real-time based on the type of waste deposited. The point system is structured as follows: paper contributes 0.1 points per piece, plastic bottles provide 0.5 points per bottle, and metal waste grants between 1 to 5 points, depending on its weight and size. These accumulated points can later be redeemed for rewards and incentives.
+    
+    To ensure smooth functioning, the system utilizes a combination of hardware and software components. The ESP32 microcontroller processes input from various sensors, including ultrasonic and weight sensors, while the Al model classifies waste efficiently. A QR-based authentication mechanism ensures that waste disposal is user-specific, allowing individuals to track their contributions. Socket.io is used for real-time updates, enabling immediate feedback and an engaging user experience.
+    One of the key highlights of the system is its real-time update and reward mechanism. By leveraging Socket.io, users can instantly view their accumulated points, track their contributions, and participate in leaderboards or competitions. This creates an engaging ecosystem where users are motivated to recycle frequently and responsibly.
+    
+    Future enhancements could further improve the system's efficiency and impact. Integrating blockchain technology could secure point transactions and ensure transparency. Weight sensors could be added to improve classification accuracy, and predictive algorithms could be used to optimize waste collection schedules. Expanding the system to handle more types of waste and partnering with eco-friendly businesses for better reward systems could also enhance its effectiveness.
+    
+    The Smart Waste Bin System represents a step forward in sustainable waste management. By automating classification, offering real-time tracking, and incentivizing users, it provides a scalable and efficient solution for improving recycling efforts worldwide. With future enhancements, this system has the potential to revolutionize waste disposal practices and contribute significantly to environmental conservation.
+    
+    The Smart Waste Bin System assigns points based on the type and quantity of waste deposited. This point system not only encourages responsible waste disposal but also allows users to redeem their points for rewards. To make the system more practical, the points earned from recycling should have a real-world value.
+    
+    Waste-to-Points Conversion:
+    
+    - Paper -> 0.1 points per piece (-5-10g)
+    
+    - Plastic Bottle -> 0.5 points per bottle (~20-30g)
+    
+    - Metal -> 1-5 points based on weight and size:
+    
+    Small (e.g., soda can, ~50g) -> 1 point
+    
+    - Medium (e.g., food container, ~200g) -> 3 points
+    
+    - Large (e.g., scrap metal piece, ~500g) -> 5 points
+    
+    Since metal has a higher recycling value, it is given a wider point range depending on its weight. Paper is assigned the lowest points because of its lower recycling value compared to plastic and metal.
+    
+    This rate can be adjusted based on real-world recycling prices in a given region.
+    
+    Users gets a one time bonus of 20 points on signing up. You can also earn points by logging in and recycling daily.
+    
+    Daily Login Rewards is as follows;
+    
+    - Day 1 -> 0.5 bonus points
+    
+    - Day 2 -> 1 bonus point
+    
+    - Day 3 -> 1.5 bonus points
+    
+    - Day 4 -> 2 bonus points
+    
+    - Day 5 and beyond (streak bonus) -> 3 bonus points per day
+    
+    If a user misses a day, the streak resets to Day 1. This system ensures continued engagement and builds a habit of recycling.
+        </p>
+</body>
+</html>
