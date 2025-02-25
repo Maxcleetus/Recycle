@@ -1,12 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Recycle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link href="https://fonts.googleapis.com/css2?family=Artifika&family=Bebas+Neue&family=Orbitron:wght@400..900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .max{
+      font-family: Bebas Neue;
+    }
+    .max2{
+      font-family: Lora;
+    }
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      
+    }
+    .swiper-slide h1{
+      font-family: Bebas Neue;  
+    }
+    .swiper-slide P{
+      font-family: Lora;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+    color: white;
+    }
+  </style>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
+
 <body>
-    <h1>heyyy thodaghiko</h1>
+  <!-- .....header.......................... -->
+  
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide relative">
+        <h1 class="absolute text-7xl text-white translate-y-[-1px] right-[150px] z-10">
+            Recycle and reuse
+        </h1>
+        <div class="absolute inset-0 backdrop-blur-[7px]"></div> <!-- Blur effect -->
+        <img class="w-full h-full object-cover"src="https://images.pexels.com/photos/5269961/pexels-photo-5269961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
+        <p class="absolute text-lg text-white translate-y-[50px] right-[166px] z-10 text-left">Recycling turns yesterday’s waste into tomorrow’s<br>resources</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/18216395/pexels-photo-18216395/free-photo-of-group-of-people-in-a-garbage-sorting-plant-next-to-bags-of-plastic-bottles-and-a-truck-with-waste-paper.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+          <h1 class="absolute text-6xl text-white translate-y-[38px] right-[79px] z-10 text-left">Reduce Reuse Recycle</h1>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/3305852/pexels-photo-3305852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
+          <h1 class="absolute text-6xl text-white translate-y-[89px] right-[121px] z-10 text-left">One man’s trash is another man’s<br>survival</h1>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/India_-_Varanasi_paper_bag_maker_-_0078.jpg" alt="">
+          <h1 class="absolute text-6xl text-white translate-y-[148px] right-[37px] z-10 text-left">Be part of the solution<br>not the pollution</h1>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.pexels.com/photos/5355590/pexels-photo-5355590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
+          <h1 class="absolute text-6xl text-white translate-y-[225px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
+        </div>
+        <div class="flex justify content-centent absolute">
+          <div class="flex list-none font-semibold p-5 justify-center text-center text-white">
+              <li class="px-16 ">HOME</li>
+              <li class="px-16 ">ABOUT</li>
+              <li class="px-16">LOCATIONS</li>
+              <li class="px-16">GALLERY</li>
+              <li class="px-16">SCHEME</li>
+              <li class="px-16">CONTACT</li>
+              <li class="px-16">SUPPORT</li>
+              <a href="/login"><li class="px-16">LOGIN</li></a>
+          </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+        const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    speed:3000,
+    effect:"fade",
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+    //autoplay:{
+        //delay:3000,
+    //}
+    });
+  </script>
+  <!-- .......swiper ends.............. -->
+  <!-- ...........gallery................. -->
+  <div>
+    <h1 class="max  p-5 text-[60px] text-center text-black ">
+      Recycle
+    </h1>
+    <div>
+      <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+        Recycling is the process of collecting and processing materials that would otherwise be thrown away to create new products. This helps to conserve natural resources, reduce landfill waste, and decrease pollution. For example, old newspapers can be recycled into new paper products, plastic bottles can be turned into new plastic containers, and glass jars can be melted down to make new glass bottles. By recycling, we can help to reduce waste, protect the environment, and preserve natural resources for future generations.
+      </p>
+    </div>
+  </div>
+  <div>
+    <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
+    <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+      The government has introduced an innovative recycling reward program to encourage responsible waste disposal and environmental sustainability. Under this scheme, individuals can collect and submit recyclable materials such as plastic bottles, paper, and other waste items to designated collection centers. In return, participants earn points based on the quantity and type of materials provided. Each point is equivalent to 1 Indian Rupee, which can be redeemed for cash or other benefits. This initiative not only reduces waste and pollution but also incentivizes citizens to actively participate in creating a cleaner and greener future. Join the program today and turn your waste into value while contributing to a sustainable environment!
+    </p>
+  </div>
+  <div>
+    <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Smart Bin & Government Recycling Reward Program    </h1>
+    <p class="max2 flex justify-center items-center translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">The Government Recycling Reward Program encourages people to recycle by offering 1 INR per point for submitting plastic, paper, and other waste at collection centers. This initiative helps keep the environment clean while rewarding participants.
+
+      To enhance this program, the Smart Bin uses AI to automatically sort waste into plastic, paper, and metal. A built-in camera captures an image of the waste, and an AI model analyzes it to determine its category. Servo motors then direct the waste into the correct compartment.
+      
+      Users scan a QR code before disposing of waste to track their contributions and earn points through a mobile or web app. Powered by an ESP32 microcontroller, the system ensures smooth processing and real-time cloud updates.
+      
+      Setting up the Smart Bin is easy—connect to power, link to WiFi, scan the QR code, and start recycling. This AI-powered system makes recycling simple, reduces landfill waste, and promotes sustainable habits.</p>
+  </div>
+  <div class="flex justify-center items-center">
+    <button onclick="openModal()" class="bg-black px-9 py-4 m-3 font-semibold text-white rounded-2xl">Redeem Now</button>
+  </div>
+  
+  <!-- Popup Modal -->
+  <div id="popup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
+      <div class="bg-white p-6 rounded-lg w-[500px] h-[700px] shadow-lg relative">
+          <h1 class="max text-5xl text-center">Redeem Now</h1>
+          <form action="https://formspree.io/f/meoebgnl" method="post" class="flex justify-center items-center flex-col">
+            <input type="text" required name="name" placeholder="Enter Your Name" class="text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="phone number" placeholder="Enter Your PhoneNumber" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="adhar number" placeholder="Enter Your Adhaar Number" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="address" placeholder="Enter Your address" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="points" placeholder="Enter Your points" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <textarea name="feedback" placeholder="Enter Your Feed back " class="text-center w-[445px] text-xl font-semibold mt-8 h-[104px] border-[3px] rounded-2xl p-8 " id=""></textarea>
+            <button type="submit" class="bg-black px-9 py-2 m-3 font-semibold text-white rounded-2xl">SUBMIT</button>
+          </form>
+          <!-- Close Button -->
+          <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl">&times;</button>
+      </div>
+  </div>
+
+  <script>
+      function openModal() {
+          document.getElementById('popup').classList.remove('hidden');
+      }
+
+      function closeModal() {
+          document.getElementById('popup').classList.add('hidden');
+      }
+
+      // Close modal when clicking outside the content
+      document.getElementById('popup').addEventListener('click', function(event) {
+          if (event.target === this) closeModal();
+      });
+  </script>
+<!-- ................gallery........................ -->
+<!-- Image Gallery -->
+<div class="grid grid-cols-4 gap-4 p-4 ">
+  <img src="https://www.shutterstock.com/shutterstock/videos/1024648685/thumb/12.jpg?ip=x480" alt="Image 1" class="gallery-img hover:scale-[1.02]">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpLXyGE5kB5pPXt_lI5oz-cUEyrovO4Pj5O6wvcsUEnh8WvHcMmgruhXJ7zgncZwrJWgw&usqp=CAU" alt="Image 2" class="gallery-img hover:scale-[1.02]">
+  <img src="https://vidhilegalpolicy.in/wp-content/uploads/2020/07/Sanitation-and-Waste-Management_Commons-1600x900.jpg" alt="Image 3" class="gallery-img hover:scale-[1.02]">
+  <img src="https://www.rochesterfirst.com/wp-content/uploads/sites/66/2024/06/6680afbf7c4375.18455056.jpeg?w=2560&h=1440&crop=1" alt="Image 4" class="gallery-img hover:scale-[1.02]">
+  <img src="https://fullerproject.org/wp-content/uploads/2022/05/Kenya-waste-picker-person-with-bag-1600x1067.jpg" alt="Image 5" class="gallery-img hover:scale-[1.02]">
+  <img src="https://thecritilizers.com/wp-content/uploads/2023/03/landfill.jpg" alt="Image 6" class="gallery-img">
+  <img src="https://static01.nyt.com/images/2018/06/11/world/00india-trash-1/00india-trash-1-superJumbo.jpg" alt="Image 7" class="gallery-img hover:scale-[1.02]">
+  <img src="https://www.dodho.com/wp-content/uploads/2017/03/GRAND-PRIZE-Arash-Yaghmaeian-United-States-of-America.jpg" alt="Image 8" class="gallery-img hover:scale-[1.02]">
+  <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/201706/waste-story_647_062517064258.jpg" alt="Image 9" class="gallery-img hover:scale-[1.02]">
+  <img src="https://www.telegraph.co.uk/multimedia/archive/01513/philippines-typhoo_1513324i.jpg" alt="Image 10" class="gallery-img hover:scale-[1.02]">
+  <img src="https://www.telegraph.co.uk/multimedia/archive/03050/potd-sewer_3050705k.jpg" alt="Image 11" class="gallery-img hover:scale-[1.02]">
+  <img src="https://www.telegraph.co.uk/multimedia/archive/00783/afghan-rubbish_783283i.jpg" alt="Image 12" class="gallery-img hover:scale-[1.02]">
+</div>
+
+<!-- Modal -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center">
+  <div class="relative max-w-3xl w-full p-4">
+      <button id="closeModal" class="absolute top-6 right-8 text-white text-3xl">&times;</button>
+      <img id="modalImage" class="w-full max-h-screen object-contain rounded-lg shadow-lg ">
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      const closeModal = document.getElementById("closeModal");
+
+      document.querySelectorAll(".gallery-img").forEach(img => {
+          // Add Tailwind styles for hover effect with reduced scale
+          img.classList.add(
+              "w-full", 
+              "h-auto", 
+              "rounded-lg", 
+              "cursor-pointer", 
+              "transition-transform", 
+              "duration-300",
+              "hover:scale-101",  // Subtle hover effect (1% increase)
+              "hover:shadow-md"   // Light shadow on hover
+          );
+
+          img.addEventListener("click", function () {
+              modal.classList.remove("hidden");
+              modal.classList.add("flex");
+              modalImage.src = this.src;
+          });
+      });
+
+      closeModal.addEventListener("click", () => {
+          modal.classList.add("hidden");
+      });
+
+      modal.addEventListener("click", (e) => {
+          // Close only if clicking outside the image
+          if (e.target === modal) {
+              modal.classList.add("hidden");
+          }
+      });
+  });
+</script>
+
 </body>
 </html>
