@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Bin Locator</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk_iK2AKt3uhSwfqKQxyftLRUlkkdIZE8&callback=initMap" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            position: relative;
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+        
+        .controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+      
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .info-window {
+            padding: 5px;
+        }
+        
+        .info-title {
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+        
+        .distance-info {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        
+        .closest-bin {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            max-width: 250px;
+        }
+        
+        .nearest-bins-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            max-width: 300px;
+            display: none;
+        }
+        
+        .nearest-bin-item {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nearest-bin-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .nearest-bin-item button {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .controls {
+                top: unset;
+                bottom: 30px;
+                width: calc(100% - 40px);
+            }
+            
+            .legend, .closest-bin, .nearest-bins-panel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div class="controls">
+        <button id="locateMe">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 0a.5.5 0 0 1 .5.5v.518A7 7 0 0 1 14.982 7.5h.518a.5.5 0 0 1 0 1h-.518A7 7 0 0 1 8.5 14.982v.518a.5.5 0 0 1-1 0v-.518A7 7 0 0 1 1.018 8.5H.5a.5.5 0 0 1 0-1h.518A7 7 0 0 1 7.5 1.018V.5A.5.5 0 0 1 8 0zm0 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+            </svg>
+            Find My Location
+        </button>
+        <button id="showAllBins">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M2.5 3.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm2-2a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zm1.5.5A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13z"/>
+            </svg>
+            Show All Bins
+        </button>
+        <button id="toggleMapType">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+            Toggle Satellite View
+        </button>
+        <button id="showNearestBins">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+            </svg>
+            Show 5 Nearest Bins
+        </button>
+    </div>
+    <div class="legend">
+        <h3 style="margin-bottom: 10px; color: #333;">Legend</h3>
+        <div class="legend-item">
+            <img class="legend-icon" src="https://cdn-icons-png.freepik.com/256/17453/17453459.png?uid=R175252545&ga=GA1.1.1481634055.1740408925&semt=ais_hybrid" alt="Recycling Bin">
+            <span>Recycling Bin</span>
+        </div>
+        <div class="legend-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#4285F4" viewBox="0 0 16 16">
+                <path d="M8 0a.5.5 0 0 1 .5.5v.518A7 7 0 0 1 14.982 7.5h.518a.5.5 0 0 1 0 1h-.518A7 7 0 0 1 8.5 14.982v.518a.5.5 0 0 1-1 0v-.518A7 7 0 0 1 1.018 8.5H.5a.5.5 0 0 1 0-1h.518A7 7 0 0 1 7.5 1.018V.5A.5.5 0 0 1 8 0zm0 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+            </svg>
+            <span>Your Location</span>
+        </div>
+    </div>
+    <div id="closestBin" class="closest-bin" style="display: none;">
+        <h3 style="margin-bottom: 10px; color: #4CAF50;">Nearest Recycling Bin</h3>
+        <div id="closestBinInfo"></div>
+    </div>
+    
+    <div id="nearestBinsPanel" class="nearest-bins-panel">
+        <h3 style="margin-bottom: 10px; color: #4CAF50;">5 Nearest Recycling Bins</h3>
+        <div id="nearestBinsList"></div>
+    </div>
+    
+    <script>
+        let map;
+        let userMarker;
+        let userLocation;
+        let markers = [];
+        let directionsService;
+        let directionsRenderer;
+        let infoWindows = [];
+        let currentMapType = 'roadmap';
+        
+        const bins = [
+            { name: "Vellangallur", lat: 10.30241231944596, lng: 76.2091104797425 },
+            { name: "Vallivattom", lat: 10.278069284671204, lng: 76.19213452472322 },
+            { name: "SN Puram", lat: 10.27817466973004, lng: 76.17440884308918 },
+            { name: "Mathilakam", lat: 10.292472920293587, lng: 76.16464959675122 },
+            { name: "Perinjanan", lat: 10.30920906507758, lng: 76.14752578484098 },
+            { name: "Padiyur", lat: 10.304625229512276, lng: 76.1754798810561 },
+            { name: "Puthiyakaavu", lat: 10.295351978942628, lng: 76.15545146729606 },
+            { name: "Irinjalakuda", lat: 10.34771656328157, lng: 76.20883483258483 },
+            { name: "Karupadanna", lat: 10.26227110592394, lng: 76.21401968900763 },
+            { name: "Vellookkara", lat: 10.326125155818136, lng: 76.21832198200013 },
+            { name: "Pribazar", lat: 10.258111081816994, lng: 76.18360556369859 },
+            { name: "Pullut", lat: 10.247261058803618, lng: 76.20953356506794 },
+            { name: "Kodungallur", lat: 10.228791438745958, lng: 76.19646099402738 },
+            { name: "Konathukunnu", lat: 10.282017122436288, lng: 76.21265854978374 },
+            { name: "Moonupeedika", lat: 10.322020852940156, lng: 76.14591131145151 },
+            { name: "Edathirinji", lat: 10.334056214294618, lng: 76.17207045686213 },
+            { name: "Poomangalam", lat: 10.304221981940108, lng: 76.1926855937814}
+        ];
+        
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 10.30241231944596, lng: 76.2091104797425 },
+                zoom: 12,
+                mapId: '8d193001f940fde3',
+                mapTypeId: 'roadmap',
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false
+            });
+            
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                suppressMarkers: true,
+                polylineOptions: {
+                    strokeColor: '#4CAF50',
+                    strokeWeight: 5,
+                    strokeOpacity: 0.7
+                }
+            });
+            directionsRenderer.setMap(map);
+            
+            createBinMarkers();
+            
+            document.getElementById('locateMe').addEventListener('click', animateToUserLocation);
+            document.getElementById('showAllBins').addEventListener('click', showAllBins);
+            document.getElementById('toggleMapType').addEventListener('click', toggleMapType);
+            document.getElementById('showNearestBins').addEventListener('click', showNearestBins);
+            
+            getUserLocation();
+        }
+        
+        function createBinMarkers() {
+            bins.forEach(bin => {
+                const marker = new google.maps.Marker({
+                    position: { lat: bin.lat, lng: bin.lng },
+                    map: map,
+                    title: bin.name,
+                    animation: google.maps.Animation.DROP,
+                    icon: {
+                        url: "https://cdn-icons-png.freepik.com/256/17453/17453459.png?uid=R175252545&ga=GA1.1.1481634055.1740408925&semt=ais_hybrid",
+                        scaledSize: new google.maps.Size(30, 30)
+                    }
+                });
+                
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<div class="info-window">
+                                <div class="info-title">${bin.name} Recycling Bin</div>
+                                <div class="distance-info">Loading distance...</div>
+                              </div>`
+                });
+                
+                infoWindows.push(infoWindow);
+                
+                marker.addListener('click', () => {
+                    infoWindows.forEach(iw => iw.close());
+                    infoWindow.open(map, marker);
+                    
+                    if (userLocation) {
+                        const distance = calculateDistance(userLocation.lat, userLocation.lng, bin.lat, bin.lng);
+                        infoWindow.setContent(`<div class="info-window">
+                                                <div class="info-title">${bin.name} Recycling Bin</div>
+                                                <div class="distance-info">${distance.toFixed(2)} km from your location</div>
+                                                <button onclick="calculateRoute(${userLocation.lat}, ${userLocation.lng}, ${bin.lat}, ${bin.lng})" 
+                                                        style="margin-top: 8px; padding: 5px 10px; font-size: 12px;">
+                                                    Get Directions
+                                                </button>
+                                              </div>`);
+                    }
+                });
+                
+                markers.push({ marker, bin });
+            });
+        }
+        
+        function getUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    
+                    if (userMarker) {
+                        userMarker.setPosition(userLocation);
+                    } else {
+                        userMarker = new google.maps.Marker({
+                            position: userLocation,
+                            map: map,
+                            title: "Your Location",
+                            zIndex: 1000,
+                            animation: google.maps.Animation.DROP,
+                            icon: {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                fillColor: '#4285F4',
+                                fillOpacity: 1,
+                                strokeColor: '#FFFFFF',
+                                strokeWeight: 2,
+                                scale: 8
+                            }
+                        });
+                    }
+                    
+                    map.panTo(userLocation);
+                    
+                    findClosestBin();
+                    
+                    updateDistances();
+                    
+                }, () => {
+                    alert('Could not get your location. Please check your browser permissions.');
+                });
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        }
+        
+        function animateToUserLocation() {
+            if (userLocation) {
+                map.panTo(userLocation);
+                map.setZoom(14);
+                
+                if (userMarker) {
+                    userMarker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(() => {
+                        userMarker.setAnimation(null);
+                    }, 1500);
+                }
+            } else {
+                getUserLocation();
+            }
+        }
+        
+        function showAllBins() {
+            const bounds = new google.maps.LatLngBounds();
+            
+            markers.forEach(({ marker }) => {
+                bounds.extend(marker.getPosition());
+            });
+            
+            if (userLocation) {
+                bounds.extend(new google.maps.LatLng(userLocation.lat, userLocation.lng));
+            }
+            
+            map.fitBounds(bounds);
+            
+            const padding = { top: 50, right: 50, bottom: 50, left: 50 };
+            map.fitBounds(bounds, padding);
+        }
+        
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a = 
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            const distance = R * c; 
+            return distance;
+        }
+        
+        function deg2rad(deg) {
+            return deg * (Math.PI/180);
+        }
+        
+        function findClosestBin() {
+            if (!userLocation) return;
+            
+            let closestBin = null;
+            let minDistance = Infinity;
+            
+            bins.forEach(bin => {
+                const distance = calculateDistance(userLocation.lat, userLocation.lng, bin.lat, bin.lng);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestBin = bin;
+                }
+            });
+            
+            if (closestBin) {
+                const closestBinDiv = document.getElementById('closestBin');
+                const closestBinInfo = document.getElementById('closestBinInfo');
+                
+                closestBinInfo.innerHTML = `
+                    <p><strong>${closestBin.name}</strong></p>
+                    <p style="margin: 5px 0;">${minDistance.toFixed(2)} km away</p>
+                    <button onclick="calculateRoute(${userLocation.lat}, ${userLocation.lng}, ${closestBin.lat}, ${closestBin.lng})" 
+                            style="margin-top: 8px; padding: 8px 12px; width: 100%;">
+                        Get Directions
+                    </button>
+                `;
+                
+                closestBinDiv.style.display = 'block';
+            }
+        }
+        
+        function updateDistances() {
+            if (!userLocation) return;
+            
+            markers.forEach(({ marker, bin }, index) => {
+                const distance = calculateDistance(userLocation.lat, userLocation.lng, bin.lat, bin.lng);
+                const content = `<div class="info-window">
+                                  <div class="info-title">${bin.name} Recycling Bin</div>
+                                  <div class="distance-info">${distance.toFixed(2)} km from your location</div>
+                                  <button onclick="calculateRoute(${userLocation.lat}, ${userLocation.lng}, ${bin.lat}, ${bin.lng})" 
+                                          style="margin-top: 8px; padding: 5px 10px; font-size: 12px;">
+                                    Get Directions
+                                  </button>
+                                </div>`;
+                infoWindows[index].setContent(content);
+            });
+        }
+        
+        function calculateRoute(startLat, startLng, endLat, endLng) {
+            const start = new google.maps.LatLng(startLat, startLng);
+            const end = new google.maps.LatLng(endLat, endLng);
+            
+            const request = {
+                origin: start,
+                destination: end,
+                travelMode: 'DRIVING'
+            };
+            
+            directionsService.route(request, (result, status) => {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(result);
+                    
+                    infoWindows.forEach(iw => iw.close());
+                    
+                    const route = result.routes[0];
+                    const leg = route.legs[0];
+                    alert(`Distance: ${leg.distance.text}\nEstimated time: ${leg.duration.text}`);
+                }
+            });
+        }
+        
+        function toggleMapType() {
+            if (currentMapType === 'roadmap') {
+                map.setMapTypeId('satellite');
+                currentMapType = 'satellite';
+                document.getElementById('toggleMapType').innerText = 'Switch to Map View';
+            } else {
+                map.setMapTypeId('roadmap');
+                currentMapType = 'roadmap';
+                document.getElementById('toggleMapType').innerText = 'Toggle Satellite View';
+            }
+        }
+        
+        function showNearestBins() {
+            if (!userLocation) {
+                alert("Please allow location access to see nearest bins");
+                getUserLocation();
+                return;
+            }
+            
+        
+            const binsWithDistances = bins.map(bin => {
+                const distance = calculateDistance(userLocation.lat, userLocation.lng, bin.lat, bin.lng);
+                return { ...bin, distance };
+            });
+            
+          
+            binsWithDistances.sort((a, b) => a.distance - b.distance);
+            
+            const nearestBins = binsWithDistances.slice(0, 5);
+          
+            const nearestBinsPanel = document.getElementById('nearestBinsPanel');
+            const nearestBinsList = document.getElementById('nearestBinsList');
+            
+            nearestBinsList.innerHTML = '';
+            
+            nearestBins.forEach((bin, index) => {
+                const binItem = document.createElement('div');
+                binItem.className = 'nearest-bin-item';
+                binItem.innerHTML = `
+                    <p><strong>${index + 1}. ${bin.name}</strong></p>
+                    <p>${bin.distance.toFixed(2)} km away</p>
+                    <button onclick="navigateToNearestBin(${bin.lat}, ${bin.lng}, '${bin.name}')">
+                        Navigate
+                    </button>
+                `;
+                nearestBinsList.appendChild(binItem);
+            });
+            
+            nearestBinsPanel.style.display = 'block';
+            
+          
+            document.getElementById('closestBin').style.display = 'none';
+        }
+        
+        function navigateToNearestBin(lat, lng, name) {
+          
+            document.getElementById('nearestBinsPanel').style.display = 'none';
+            
+       
+            map.panTo({ lat, lng });
+            map.setZoom(15);
+            
+       
+            const markerObj = markers.find(m => m.bin.name === name);
+            if (markerObj) {
+          
+                markerObj.marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(() => {
+                    markerObj.marker.setAnimation(null);
+                }, 1500);
+                
+             
+                if (userLocation) {
+                    calculateRoute(userLocation.lat, userLocation.lng, lat, lng);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
