@@ -190,43 +190,7 @@
       Users scan a QR code before disposing of waste to track their contributions and earn points through a mobile or web app. Powered by an ESP32 microcontroller, the system ensures smooth processing and real-time cloud updates.
       
       Setting up the Smart Bin is easy—connect to power, link to WiFi, scan the QR code, and start recycling. This AI-powered system makes recycling simple, reduces landfill waste, and promotes sustainable habits.</p>
-  </div>
-  <div class="flex justify-center items-center">
-    <button onclick="openModal()" class="bg-black px-9 py-4 m-3 font-semibold text-white rounded-2xl">Redeem Now</button>
-  </div>
-  
-  <!-- Popup Modal -->
-  <div id="popup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
-      <div class="bg-white p-6 rounded-lg w-[500px] h-[700px] max-md:w-[300px] shadow-lg relative">
-          <h1 class="max text-5xl text-center">Redeem Now</h1>
-          <form action="https://formspree.io/f/meoebgnl" method="post" class="flex justify-center items-center flex-col">
-            <input type="text" required name="name" placeholder="Enter Your Name" class="text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="phone number" placeholder="Enter Your PhoneNumber" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="adhar number" placeholder="Enter Your Adhaar Number" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="address" placeholder="Enter Your address" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="points" placeholder="Enter Your points" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <textarea name="feedback" placeholder="Enter Your Feed back " class="text-center w-[445px] text-xl font-semibold mt-8 h-[104px] border-[3px] rounded-2xl p-8 " id=""></textarea>
-            <button type="submit" class="bg-black px-9 py-2 m-3 font-semibold text-white rounded-2xl">SUBMIT</button>
-          </form>
-          <!-- Close Button -->
-          <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl">&times;</button>
-      </div>
-  </div>
-
-  <script>
-      function openModal() {
-          document.getElementById('popup').classList.remove('hidden');
-      }
-
-      function closeModal() {
-          document.getElementById('popup').classList.add('hidden');
-      }
-
-      // Close modal when clicking outside the content
-      document.getElementById('popup').addEventListener('click', function(event) {
-          if (event.target === this) closeModal();
-      });
-  </script>
+    </div>
 <!-- ................gallery........................ -->
 <!-- Image Gallery -->
 <h1 id="gallery" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Gallery</h1>
