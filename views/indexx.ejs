@@ -80,45 +80,45 @@
 </head>
 
 <body>
+  <div class="fixed top-0 w-full bg-black/50 bg-opacity-50 z-50">
+    <div class="flex max-md:text-[12px] max-md:py-2 list-none font-semibold p-5 justify-center text-center text-white">
+        <a href="#home"><li class="px-16 max-md:px-2">HOME</li></a>
+        <a href="#about"><li class="px-16 max-md:px-2">ABOUT</li></a>
+        <a href="#scheme"><li class="px-16 max-md:hidden">SCHEME</li></a>
+        <a href="#gallery"><li class="px-16 max-md:hidden">GALLERY</li></a>
+        <a href="/location"><li class="px-16 max-md:px-2">LOCATIONS</li></a>
+        <li class="px-16 max-md:hidden">CONTACT</li>
+        <a href="/popup"><li class="px-16 max-md:px-2">SUPPORT</li></a>
+        <a href="#"><li class="px-16 max-md:px-2">POINTS:20PTS</li></a>
+    </div>
+  </div>
   <!-- Swiper -->
-  <div id="home" class="swiper mySwiper">
+  <div class="swiper mySwiper" id="home">
     <div class="swiper-wrapper">
       <div class="swiper-slide relative">
-        <h1 class="absolute text-7xl text-white translate-y-[-1px] right-[150px] z-10">
+        <h1 class="absolute text-7xl max-md:w-full text-white max-md:text-center max-md:text-[34px] max-md:translate-x-[152px] max-md:translate-y-[-40px] translate-y-[-1px] right-[150px] z-10">
             Recycle and reuse
         </h1>
         <div class="absolute inset-0 backdrop-blur-[7px]"></div> <!-- Blur effect -->
         <img class="w-full h-full object-cover"src="https://images.pexels.com/photos/5269961/pexels-photo-5269961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-        <p class="absolute text-lg text-white translate-y-[50px] right-[166px] z-10 text-left">Recycling turns yesterday’s waste into tomorrow’s<br>resources</p>
+        <p class="absolute text-lg  max-md:text-center text-white max-md:translate-x-[87px] max-md:translate-y-[90px] max-md:text-[23px] translate-y-[60px] right-[166px] z-10 text-left">Recycling turns yesterday’s waste into tomorrow’s<br>resources</p>
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/18216395/pexels-photo-18216395/free-photo-of-group-of-people-in-a-garbage-sorting-plant-next-to-bags-of-plastic-bottles-and-a-truck-with-waste-paper.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[38px] right-[79px] z-10 text-left">Reduce Reuse Recycle</h1>
+          <h1 class="absolute text-6xl text-white translate-y-[79px] max-md:translate-y-[263px] max-md:right-[72px] max-md:text-[1.75rem] right-[105px] z-10 text-left">Reduce Reuse Recycle</h1>
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/3305852/pexels-photo-3305852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[89px] right-[121px] z-10 text-left">One man’s trash is another man’s<br>survival</h1>
+          <h1 class="absolute text-6xl text-white translate-y-[181px] max-md:text-center max-md:translate-y-[65px] max-md:translate-x-[97px] max-md:text-[1.75rem] right-[121px] z-10 text-left">One man’s trash is another man’s<br class="max-md:hidden"> survival</h1>
         </div>
         <div class="swiper-slide">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/India_-_Varanasi_paper_bag_maker_-_0078.jpg" alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[148px] right-[37px] z-10 text-left">Be part of the solution<br>not the pollution</h1>
+          <h1 class="absolute text-6xl text-white max-md:translate-y-[-221px] translate-y-[211px] right-[37px] z-10 text-left max-md:text-center max-md:translate-x-[-81px] max-md:text-[1.75rem]">Be part of the solution<br>not the pollution</h1>
         </div>
         <div class="swiper-slide">
           <img src="https://images.pexels.com/photos/5355590/pexels-photo-5355590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " alt="">
-          <h1 class="absolute text-6xl text-white translate-y-[138px] right-[61px] z-10 text-left">Recycling It’s not a choice<br>It’s a responsibility</h1>
+          <h1 class="absolute text-6xl text-white translate-y-[281px] right-[61px] z-10 text-left max-md:text-center max-md:translate-y-[219px] max-md:translate-x-[15px] max-md:text-[1.75rem] max-md:bg-black/50 max-md:p-3 max-md:rounded-lg">Recycling It’s not a choice<br>It’s a responsibility</h1>
         </div>
-        <div class="flex justify content-centent absolute">
-          <div class="flex list-none font-semibold p-5 justify-center text-center text-white">
-              <a href="#home"><li class="px-16 ">HOME</li></a>
-              <a href="#about"><li class="px-16 ">ABOUT</li></a>
-              <a href="#scheme"><li class="px-16">SCHEME</li></a>
-              <a href="#gallery"><li class="px-16">GALLERY</li></a>
-              <a href="/location"><li class="px-16">LOCATIONS</li></a>
-              <li class="px-16">CONTACT</li>
-              <a href="/popup"><li class="px-11">SUPPORT</li></a>
-              <li class="px-11">POINTS:20PTS</li>
-          </div>
-      </div>
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
@@ -151,31 +151,31 @@
     scrollbar: {
         el: '.swiper-scrollbar',
     },
-    autoplay:{
-        delay:3000,
-    }
+    //autoplay:{
+    //    delay:3000,
+    //}
     });
   </script>
   <!-- .......swiper ends.............. -->
   <div>
-    <h1 id="about" class="max  p-5 text-[60px] text-center text-black ">
+    <h1 id="about" class="max  p-5 text-[60px] text-center max-md:text-[40px] text-black ">
       Recycle
     </h1>
     <div>
-      <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+      <p class="max2 max-md:px-2 max-md:text-[24px] translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
         Recycling is the process of collecting and processing materials that would otherwise be thrown away to create new products. This helps to conserve natural resources, reduce landfill waste, and decrease pollution. For example, old newspapers can be recycled into new paper products, plastic bottles can be turned into new plastic containers, and glass jars can be melted down to make new glass bottles. By recycling, we can help to reduce waste, protect the environment, and preserve natural resources for future generations.
       </p>
     </div>
   </div>
   <div>
-    <h1 id="scheme" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
-    <p class="max2 translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
+    <h1 id="scheme" class="max max-md:text-[40px] p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Government Recycling Reward Program</h1>
+    <p class="max2 max-md:px-2 max-md:text-[24px] translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">
       The government has introduced an innovative recycling reward program to encourage responsible waste disposal and environmental sustainability. Under this scheme, individuals can collect and submit recyclable materials such as plastic bottles, paper, and other waste items to designated collection centers. In return, participants earn points based on the quantity and type of materials provided. Each point is equivalent to 1 Indian Rupee, which can be redeemed for cash or other benefits. This initiative not only reduces waste and pollution but also incentivizes citizens to actively participate in creating a cleaner and greener future. Join the program today and turn your waste into value while contributing to a sustainable environment!
     </p>
   </div>
   <div>
-    <h1 class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Smart Bin & Government Recycling Reward Program    </h1>
-    <p class="max2 flex justify-center items-center translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">The Government Recycling Reward Program encourages people to recycle by offering 1 INR per point for submitting plastic, paper, and other waste at collection centers. This initiative helps keep the environment clean while rewarding participants.
+    <h1 class="max max-md:text-[40px] p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Smart Bin & Government Recycling Reward Program    </h1>
+    <p class="max2 max-md:px-2 max-md:text-[24px] flex justify-center items-center translate-y-[-10px] text-3xl px-28 leading-[50px] right-0 text-center text-black/80">The Government Recycling Reward Program encourages people to recycle by offering 1 INR per point for submitting plastic, paper, and other waste at collection centers. This initiative helps keep the environment clean while rewarding participants.
 
       To enhance this program, the Smart Bin uses AI to automatically sort waste into plastic, paper, and metal. A built-in camera captures an image of the waste, and an AI model analyzes it to determine its category. Servo motors then direct the waste into the correct compartment.
       
@@ -189,16 +189,16 @@
   
   <!-- Popup Modal -->
   <div id="popup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden">
-      <div class="bg-white p-6 rounded-lg w-[500px] h-[700px] shadow-lg relative">
-          <h1 class="max text-5xl text-center">Redeem Now</h1>
+      <div class="bg-white p-6 rounded-lg w-[500px] max-md:w-[350px] h-[700px] max-md:h-[550px] shadow-lg relative">
+          <h1 class="max text-5xl text-center max-md:text-[40px]">Redeem Now</h1>
           <form action="https://formspree.io/f/meoebgnl" method="post" class="flex justify-center items-center flex-col">
-            <input type="text" required name="name" placeholder="Enter Your Name" class="text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="phone number" placeholder="Enter Your PhoneNumber" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="adhar number" placeholder="Enter Your Adhaar Number" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="address" placeholder="Enter Your address" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <input type="text" required name="points" placeholder="Enter Your points" class=" text-center w-[445px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
-            <textarea name="feedback" placeholder="Enter Your Feed back " class="text-center w-[445px] text-xl font-semibold mt-8 h-[104px] border-[3px] rounded-2xl p-8 " id=""></textarea>
-            <button type="submit" class="bg-black px-9 py-2 m-3 font-semibold text-white rounded-2xl">SUBMIT</button>
+            <input type="text" required name="name" placeholder="Enter Your Name" class="text-center w-[445px] max-md:w-[325px] max-md:h-[30px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="phone number" placeholder="Enter Your PhoneNumber" class=" text-center w-[445px] max-md:w-[325px] max-md:h-[30px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="adhar number" placeholder="Enter Your Adhaar Number" class=" text-center w-[445px] max-md:w-[325px] max-md:h-[30px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="address" placeholder="Enter Your address" class=" text-center w-[445px] max-md:w-[325px] max-md:h-[30px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <input type="text" required name="points" placeholder="Enter Your points" class=" text-center w-[445px] max-md:w-[325px] max-md:h-[30px] text-xl font-semibold mt-8 h-[54px] border-[3px] rounded-2xl ">
+            <textarea name="feedback" placeholder="Enter Your Feed back " class="text-center w-[445px] max-md:w-[325px] max-md:h-[54px] max-md:p-2 text-xl font-semibold mt-8 h-[104px] border-[3px] rounded-2xl p-8 " id=""></textarea>
+            <button type="submit" class="bg-black max-md:px-4 max-md:py-1 px-9 py-2 m-3 font-semibold text-white rounded-2xl">SUBMIT</button>
           </form>
           <!-- Close Button -->
           <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl">&times;</button>
@@ -220,8 +220,8 @@
       });
   </script>
   <!-- ......gallery.......................................... -->
-  <h1 id="gallery" class="max  p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Gallery</h1>
-  <div class="grid grid-cols-4 gap-4 p-4 ">
+  <h1 id="gallery" class="max max-md:text-[40px] p-5 text-[60px] text-center text-black font-[Bebas Neue] ">Gallery</h1>
+  <div class="grid grid-cols-4 max-md:grid-cols-2 gap-4 p-4 ">
     <img src="https://www.shutterstock.com/shutterstock/videos/1024648685/thumb/12.jpg?ip=x480" alt="Image 1" class="gallery-img hover:scale-[1.02]">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpLXyGE5kB5pPXt_lI5oz-cUEyrovO4Pj5O6wvcsUEnh8WvHcMmgruhXJ7zgncZwrJWgw&usqp=CAU" alt="Image 2" class="gallery-img hover:scale-[1.02]">
     <img src="https://vidhilegalpolicy.in/wp-content/uploads/2020/07/Sanitation-and-Waste-Management_Commons-1600x900.jpg" alt="Image 3" class="gallery-img hover:scale-[1.02]">
@@ -319,9 +319,9 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-2">Newsletter</h3>
                     <div class="border-b-2 w-16 border-gray-400 mb-4"></div>
-                    <form class="flex items-center mb-4">
+                    <form class="flex items-center mb-4" action="https://formspree.io/f/mwpvgonv" method="post">
                         <i class="fa-solid fa-envelope text-gray-400 mr-2"></i>
-                        <input type="email" placeholder="Enter your email" class="bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
+                        <input type="email" placeholder="Enter your email" name="email" class="bg-gray-700 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1">
                         <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md ml-2 hover:bg-green-400 cursor-pointer">
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
